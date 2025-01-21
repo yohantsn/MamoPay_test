@@ -1,15 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mamopay_test/models/transaction_model.dart';
 import 'package:mamopay_test/repository/api/collections.dart';
+import 'package:mamopay_test/repository/auth/auth_contract.dart';
 import 'package:mamopay_test/repository/repository.dart';
 
 class ApiService implements ApiContract {
-  ApiService({FirebaseFirestore? firebaseInstance})
-      : _firebaseFirestore = firebaseInstance ?? FirebaseFirestore.instance;
+  ApiService({
+    FirebaseFirestore? firebaseInstance,
+    required this.authContract,
+  }) : _firebaseFirestore = firebaseInstance ?? FirebaseFirestore.instance;
 
   final FirebaseFirestore _firebaseFirestore;
+  final AuthContract authContract;
 
-  String get _uid => "uid";
+  String get _uid => authContract.uid ?? '';
 
   @override
   Future<void> addMoney(TransactionModel transaction) async {
