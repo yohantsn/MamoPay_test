@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "dev_debug",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": []
+        },
+    ]
+}

@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mamopay_test/features/welcome/view/welcome_view.dart';
 import 'package:mamopay_test/firebase_options.dart';
 import 'package:mamopay_test/repository/repository.dart';
 
@@ -9,5 +10,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Register.init();
-  runApp(const Material());
+  runApp(const MaterialApp(
+    home: WelcomeView(),
+  ));
 }
